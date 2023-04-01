@@ -9,9 +9,11 @@ app.use("/api/state-income-limits", incomeLimitsByStateRouter);
 
 // Custom error handler
 app.use((err, req, res, next) => {
-    console.error(err.stack); // Log the error stack trace
-    res.status(500).json({ message: "Internal server error" });
-  });
+  console.error('Error message:', err.message);
+  console.error('Error stack trace:', err.stack);
+  res.status(500).json({ message: "Internal server error" });
+});
+
   
 
 // Start the server
